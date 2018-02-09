@@ -1,0 +1,294 @@
+body {
+    margin: 0;
+    color: #444;
+    font-family: 'Roboto Mono', monospace;
+    ;
+}
+/*Convenience styles*/
+*,
+:after,
+:before {
+    box-sizing: border-box
+}
+.pull-left {
+    float: left
+}
+.pull-right {
+    float: right
+}
+.clearfix:after,
+.clearfix:before {
+    content: '';
+    display: table
+}
+.clearfix:after {
+    clear: both;
+    display: block
+}
+/*base styles*/
+.watch,
+.watch .strap-pad,
+.watch .crown,
+.watch .clock-face,
+.watch .crown:before,
+.watch .crown:after,
+.watch .clock-face .indicators,
+.watch .clock-face .indicators>div,
+.watch .clock-face .clock-meta,
+.watch .clock-face .clock-meta>div,
+.watch .clock-face .arrows,
+.watch .clock-face .arrows>div {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+}
+.watch .strap:before,
+.watch .strap:after,
+.watch .crown:before,
+.watch .crown:after,
+.watch .clock-face .indicators:before,
+.watch .clock-face .clock-meta>div:before,
+.watch .clock-face .clock-meta>div:after,
+.watch .clock-face .arrows>div:before,
+.watch .clock-face .arrows .second:after {
+    content: '';
+    position: absolute;
+}
+/*wrapper & basic structure*/
+.watch {
+    width: 380px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-top: -190px;
+    margin-left: -190px;
+    animation-duration: .4s;
+}
+.watch .strap-pad {
+    width: 183px;
+    height: 270px;
+    margin-top: -120px;
+    background: #d4d4d4;
+    margin-left: -91px;
+    border-radius: 100px / 30px;
+    animation-delay: .4s;
+    animation-duration: .4s;
+}
+.watch .strap {
+    z-index: 1;
+    margin: auto;
+    width: 150px;
+    height: inherit;
+    overflow: hidden;
+    position: relative;
+    background: #333;
+    border-radius: 120px / 30px;
+    animation-delay: .6s;
+    animation-duration: .6s;
+}
+.watch .strap:before,
+.watch .strap:after {
+    width: 40px;
+    height: inherit;
+    background: #333;
+}
+.watch .strap:before {
+    left: 0
+}
+.watch .strap:after {
+    right: 0
+}
+.watch .crown {
+    left: 308px;
+    width: 25px;
+    height: 25px;
+    margin-top: -2px;
+    background: #C2C2C2;
+    border-radius: 0 10px 10px 0;
+    animation-delay: 1.6s;
+    animation-duration: .8s;
+}
+/*Clock face*/
+.watch .clock-face {
+    z-index: 5;
+    width: 260px;
+    height: 260px;
+    background: #fff;
+    border-radius: 50%;
+    margin-top: -120px;
+    margin-left: -130px;
+    border: 10px solid #D4D4D4;
+    animation-delay: 1s;
+    animation-duration: .4s;
+}
+/*Time indicators*/
+.watch .clock-face .indicators {
+    width: 210px;
+    height: 210px;
+    margin-top: -105px;
+    margin-left: -105px;
+}
+.watch .clock-face .indicators:before {
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 190px;
+    height: 190px;
+    background: #fff;
+    border-radius: 50%;
+    margin-top: -95px;
+    margin-left: -95px;
+}
+.watch .clock-face .indicators>div,
+.watch .clock-face .clock-meta>div {
+    height: 1px;
+    width: 210px;
+    margin-top: -0.5px;
+    position: absolute;
+    margin-left: -105px;
+    border: 1px solid #d3d3d3;
+}
+.watch .clock-face .indicators>div:nth-child(2),
+.watch .clock-face .clock-meta>div:nth-child(2) {
+    transform: rotate(90deg);
+}
+.watch .clock-face .indicators>div:nth-child(3),
+.watch .clock-face .clock-meta>div:nth-child(3) {
+    transform: rotate(120deg);
+}
+.watch .clock-face .indicators>div:nth-child(4),
+.watch .clock-face .clock-meta>div:nth-child(4) {
+    transform: rotate(150deg);
+}
+.watch .clock-face .indicators>div:nth-child(5),
+.watch .clock-face .clock-meta>div:nth-child(5) {
+    transform: rotate(210deg);
+}
+.watch .clock-face .indicators>div:nth-child(6),
+.watch .clock-face .clock-meta>div:nth-child(6) {
+    transform: rotate(240deg);
+}
+/*Clock insides & notifications*/
+.watch .clock-face .clock-meta {
+    z-index: 5;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+}
+.watch .clock-face .clock-meta>div {
+    border: none;
+}
+.watch .clock-face .clock-meta>div:before,
+.watch .clock-face .clock-meta>div:after {
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    margin-top: -10px;
+    text-align: center;
+}
+.watch .clock-face .clock-meta>div:before {
+    left: 15px
+}
+.watch .clock-face .clock-meta>div:after {
+    right: 15px
+}
+/*The clock hands*/
+.watch .clock-face .arrows {
+    z-index: 5;
+    width: 220px;
+    height: 220px;
+    margin-top: -110px;
+    margin-left: -110px;
+    transform: rotate(90deg) scale(0);
+    animation-delay: 2s;
+    animation: showArrow .8s forwards;
+}
+.watch .clock-face .arrows>div {
+    width: inherit;
+    margin-left: inherit;
+    transition: all .4s ease-in-out 0s;
+}
+.watch .clock-face .arrows>div:before {
+    height: 3px;
+    background: #000;
+}
+.watch .clock-face .arrows .hour {
+    height: 3px;
+    margin-top: -4px;
+}
+.watch .clock-face .arrows .hour:before {
+    left: 40px;
+    width: 90px;
+}
+.watch .clock-face .arrows .minute {
+    height: 5px;
+    margin-top: -3px;
+}
+.watch .clock-face .arrows .minute:before {
+    left: 10px;
+    width: 120px;
+}
+.watch .clock-face .arrows .second {
+    height: 2px;
+    margin-top: -1px;
+    transition: transform 0.2s cubic-bezier(.4, 2.08, .55, .44);
+}
+.watch .clock-face .arrows .second:before {
+    left: 15px;
+    width: 115px;
+    background: red;
+}
+.watch .clock-face .arrows .second:after {
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    margin-left: -7px;
+    background: red;
+    border-radius: 50%;
+    border: 2px solid #dde5eb;
+}
+@keyframes showArrow {
+    0% {
+        transform: rotate(90deg) scale(0)
+    }
+    100% {
+        transform: rotate(90deg) scale(1)
+    }
+}
+/*Date*/
+#date {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 12px;
+    font-weight: 600;
+}
+/*Meeting notifier*/
+.notify {
+    position: absolute;
+    bottom: 20px;
+    left: 65px;
+    font-size: 9px;
+    color: #ccc;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+}
+.notify-span {
+    color: #dd0404;
+}
+/*Quadrant indicator*/
+.daysWidget {
+    margin: 7px 0 0 15px;
+}
+#time-cycle-eve>img {
+    width: 90px;
+    position: absolute;
+    top: 55px;
+    left: 110px;
+}
